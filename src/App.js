@@ -14,12 +14,9 @@ const App = () => {
 			setDecoded(value);
 		} else {
 			setEncoded(value);
-			console.log({ encoded, decoding: decode(encoded), decoded });
 		}
 	};
 	const revert = () => {
-		// setEncoded('');
-		// setDecoded('');
 		setToMorse(!toMorse);
 	};
 
@@ -28,11 +25,10 @@ const App = () => {
 			<div className='container'>
 				<h3 className='intro'>Translate to and from Morse code...</h3>
 				<div className='row'>
-					<div className='column'>
+					<div id={toMorse ? 'first' : 'second'} className='column'>
 						<label>Plain Text</label>
 						<textarea
 							name='plain_text_area'
-							className='plain_text_area'
 							value={toMorse ? decoded : decode(encoded)}
 							onChange={handleChange}
 							readOnly={!toMorse}
@@ -45,7 +41,7 @@ const App = () => {
 						/>
 					</div>
 					<SyncAlt className='revert' onClick={revert} />
-					<div className='column'>
+					<div id={toMorse ? 'second' : 'first'} className='column'>
 						<label>Morse Code</label>
 						<textarea
 							name='morse_text_area'
@@ -56,7 +52,6 @@ const App = () => {
 									? 'Your Morse code will appear here!'
 									: 'Type your encoded message here! 🖊 Use <<•>> and <<−>> symbols to create characters. Separate everything with spaces.'
 							}
-							className='morse_text_area'
 							value={toMorse ? encode(decoded) : encoded}
 						/>
 					</div>
