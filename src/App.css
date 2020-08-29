@@ -62,7 +62,6 @@ label {
 	cursor: pointer;
 }
 .revert:hover {
-	/* background-color: var(--blueGrey-color-800); */
 	color: var(--blueGrey-color-100);
 }
 
