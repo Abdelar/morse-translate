@@ -1,7 +1,7 @@
 import { map } from './map';
 
 export const encode = str => {
-	const temp = str.split('');
+	const temp = str.trim().split('');
 	for (const i in temp) {
 		temp[i] = map[temp[i].toUpperCase()] || '?';
 	}
@@ -9,16 +9,17 @@ export const encode = str => {
 };
 
 const decodeCharacter = char => {
+	if (!char) return '';
 	for (const i in map) {
 		if (map[i] === char) {
 			return i;
 		}
 	}
-	return ' ';
+	return '?';
 };
 
 export const decode = str => {
-	const temp = str.split(' ');
+	const temp = str.trim().split(' ');
 	for (const i in temp) {
 		temp[i] = decodeCharacter(temp[i]);
 	}

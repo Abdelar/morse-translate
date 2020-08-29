@@ -28,7 +28,7 @@ body {
 
 ::selection {
 	color: var(--foreground-color);
-	background-color: var(--blueGrey-color-100);
+	background-color: var(--blueGrey-color-700);
 }
 ::placeholder {
 	color: var(--blueGrey-color-400);
