@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SyncAlt from '@material-ui/icons/SyncAlt';
 import './App.css';
 import { encode, decode } from './helper';
+import { Multimedia } from './Multimedia';
 
 const App = () => {
 	const [decoded, setDecoded] = useState('');
@@ -59,6 +60,7 @@ const App = () => {
 						/>
 					</div>
 				</div>
+				<Multimedia />
 			</div>
 		</div>
 	);

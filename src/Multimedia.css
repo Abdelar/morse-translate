@@ -1,0 +1,14 @@
+.multimedia {
+	text-align: left;
+	margin: 10px 0 0 0;
+}
+.icon_button {
+	cursor: pointer;
+}
+.icon_button:hover {
+	color: var(--blueGrey-color-100);
+}
+.bulb {
+	color: var(--blueGrey-color-600);
+	margin: 0 0 0 10px;
+}
