@@ -25,3 +25,15 @@ export const decode = str => {
 	}
 	return temp.join('');
 };
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+const gain = audioContext.createGain();
+gain.connect(audioContext.destination);
+export const playTone = (volume = 0.3, frequency = 400) => {
+	gain.gain.value = volume;
+	const osc = audioContext.createOscillator();
+	osc.frequency.value = frequency;
+	osc.connect(gain);
+	osc.start();
+	return osc;
+};
