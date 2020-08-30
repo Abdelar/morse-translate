@@ -25,7 +25,8 @@ const App = () => {
 	return (
 		<div className='App'>
 			<div className='container'>
-				<h3 className='intro'>Translate to and from Morse code...</h3>
+				<h1 className='name'>Morse Translate</h1>
+				<h2 className='intro'>Translate to and from Morse code...</h2>
 				<div className='row'>
 					<div id={toMorse ? 'first' : 'second'} className='column'>
 						<label>Plain Text</label>

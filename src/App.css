@@ -5,11 +5,17 @@
 .container {
 	justify-content: center;
 }
-.intro {
+.name {
+	padding: 0;
+	margin: 20px 0 20px 5px;
 	text-align: left;
-	color: var(--blueGrey-color-600);
+}
+.intro {
+	padding: 0;
+	margin: 0 0 20px 5px;
+	text-align: left;
+	color: var(--blueGrey-color-400);
 	font-weight: 500;
-	margin-left: 5px;
 }
 
 .row {
@@ -25,7 +31,6 @@
 textarea {
 	outline: none;
 	width: 100%;
-	/* min-width: 300px; */
 	color: var(--background-color);
 	background-color: white;
 	resize: none;
@@ -35,6 +40,7 @@ textarea {
 	height: 20vh;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
+	font-size: large;
 }
 textarea:focus {
 	background-color: var(--blueGrey-color-50);
@@ -42,7 +48,7 @@ textarea:focus {
 label {
 	display: block;
 	color: var(--background-color);
-	background-color: white;
+	background-color: var(--blueGrey-color-50);
 	padding: 5px;
 	margin-bottom: 4px;
 	border-top-right-radius: 15px;
