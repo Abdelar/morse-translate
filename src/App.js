@@ -60,7 +60,7 @@ const App = () => {
 						/>
 					</div>
 				</div>
-				<Multimedia />
+				<Multimedia encoded={encoded} />
 			</div>
 		</div>
 	);

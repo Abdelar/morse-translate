@@ -37,3 +37,27 @@ export const playTone = (volume = 0.3, frequency = 400) => {
 	osc.start();
 	return osc;
 };
+
+export const toBinary = str => {
+	let res = [];
+	str.split('').forEach(char => {
+		switch (char) {
+			case '•':
+				res.push(1, 0);
+				break;
+			case '−':
+				res.push(1, 1, 1, 0);
+				break;
+			case ' ':
+				res.push(0, 0);
+				break;
+			case '/':
+				res.push(0, 0, 0, 0, 0, 0);
+				break;
+
+			default:
+				break;
+		}
+	});
+	return res;
+};
