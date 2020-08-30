@@ -9,11 +9,13 @@ const App = () => {
 	const [toMorse, setToMorse] = useState(true);
 
 	const handleChange = event => {
-		const { value, name } = event.target;
+		const { value } = event.target;
 		if (toMorse) {
 			setDecoded(value);
+			setEncoded(encode(value));
 		} else {
 			setEncoded(value);
+			setDecoded(decode(value));
 		}
 	};
 	const revert = () => {
@@ -29,7 +31,7 @@ const App = () => {
 						<label>Plain Text</label>
 						<textarea
 							name='plain_text_area'
-							value={toMorse ? decoded : decode(encoded)}
+							value={decoded}
 							onChange={handleChange}
 							readOnly={!toMorse}
 							autoFocus
@@ -52,7 +54,7 @@ const App = () => {
 									? 'Your Morse code will appear here!'
 									: 'Type your encoded message here! 🖊 Use <<•>> and <<−>> symbols to create characters. Separate everything with spaces.'
 							}
-							value={toMorse ? encode(decoded) : encoded}
+							value={encoded}
 						/>
 					</div>
 				</div>
