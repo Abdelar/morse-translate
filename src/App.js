@@ -53,7 +53,7 @@ const App = () => {
 							placeholder={
 								toMorse
 									? 'Your Morse code will appear here!'
-									: 'Type your encoded message here! 🖊 Use <<•>> and <<−>> symbols to create characters. Separate everything with spaces.'
+									: 'Use <<•>> and <<−>>, Space for letters separation and forward slash for words separation. For example (SOS): ••• −−− •••'
 							}
 							value={encoded}
 						/>
