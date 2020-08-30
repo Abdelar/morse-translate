@@ -9,16 +9,17 @@ let tone;
 let timer;
 export const Multimedia = props => {
 	const [playing, setPlaying] = useState(false);
+	const [light, setLight] = useState(false);
 
 	useEffect(() => {
-		if (timer) {
-			tone && tone.stop();
-			clearInterval(timer);
-			tone = null;
-			timer = null;
-			setPlaying(false);
-			return;
-		}
+		// if (timer) {
+		// 	tone && tone.stop();
+		// 	clearInterval(timer);
+		// 	tone = null;
+		// 	timer = null;
+		// 	setPlaying(false);
+		// 	return;
+		// }
 		if (playing) {
 			const code = toBinary(props.encoded);
 			let i = 0;
@@ -26,9 +27,11 @@ export const Multimedia = props => {
 				if (code[i] === 1) {
 					if (i === 0 || code[i - 1] === 0) {
 						tone = playTone();
+						setLight(true);
 					}
 				} else if (code[i] === 0) {
 					tone && tone.stop();
+					setLight(false);
 				} else {
 					clearInterval(timer);
 					setPlaying(false);
@@ -39,7 +42,7 @@ export const Multimedia = props => {
 			tone && tone.stop();
 			clearInterval(timer);
 		}
-	}, [playing, props.encoded]);
+	}, [playing]);
 
 	const toggleSound = () => {
 		setPlaying(!playing);
@@ -54,7 +57,11 @@ export const Multimedia = props => {
 					<PlayArrowRoundedIcon fontSize='large' className='icon_button' />
 				)}
 			</span>
-			<EmojiObjectsIcon fontSize='large' className='bulb' />
+			<EmojiObjectsIcon
+				fontSize='large'
+				className='bulb'
+				id={light ? 'on' : 'off'}
+			/>
 		</div>
 	);
 };

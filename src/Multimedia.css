@@ -12,3 +12,10 @@
 	color: var(--blueGrey-color-600);
 	margin: 0 0 0 10px;
 }
+
+#on {
+	color: yellow;
+}
+#off {
+	color: var(--blueGrey-color-600);
+}
