@@ -41,6 +41,7 @@ export const Multimedia = props => {
 		} else {
 			tone && tone.stop();
 			clearInterval(timer);
+			setLight(false);
 		}
 	}, [playing]);
 
