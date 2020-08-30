@@ -43,7 +43,7 @@ const App = () => {
 							}
 						/>
 					</div>
-					<SyncAlt className='revert' onClick={revert} />
+					<SyncAlt className='revert' onClick={revert} fontSize='large' />
 					<div id={toMorse ? 'second' : 'first'} className='column'>
 						<label>Morse Code</label>
 						<textarea
