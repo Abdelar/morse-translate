@@ -19,3 +19,8 @@
 #off {
 	color: var(--blueGrey-color-600);
 }
+
+.controls span {
+	display: inline-block;
+	width: 100px;
+}
