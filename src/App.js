@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SyncAlt from '@material-ui/icons/SyncAlt';
 import './App.css';
 import { encode, decode } from './helper';
@@ -8,6 +8,16 @@ const App = () => {
 	const [decoded, setDecoded] = useState('');
 	const [encoded, setEncoded] = useState('');
 	const [toMorse, setToMorse] = useState(true);
+	const plain_text_area = useRef();
+	const morse_text_area = useRef();
+
+	useEffect(() => {
+		if (toMorse) {
+			plain_text_area.current.focus();
+		} else {
+			morse_text_area.current.focus();
+		}
+	}, [toMorse]);
 
 	const handleChange = event => {
 		const { value } = event.target;
@@ -32,6 +42,7 @@ const App = () => {
 					<div id={toMorse ? 'first' : 'second'} className='column'>
 						<label>Plain Text</label>
 						<textarea
+							ref={plain_text_area}
 							name='plain_text_area'
 							value={decoded}
 							onChange={handleChange}
@@ -48,6 +59,7 @@ const App = () => {
 					<div id={toMorse ? 'second' : 'first'} className='column'>
 						<label>Morse Code</label>
 						<textarea
+							ref={morse_text_area}
 							name='morse_text_area'
 							readOnly={toMorse}
 							onChange={handleChange}
