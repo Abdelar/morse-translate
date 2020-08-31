@@ -26,8 +26,14 @@
 	margin-left: 10px;
 }
 .controls input {
-	background-color: yellow;
 	outline: none;
+}
+.controls input:disabled {
+	background-color: var(--blueGrey-color-700);
+}
+
+input[type='range']:disabled::-webkit-slider-thumb {
+	cursor: auto;
 }
 
 /* Styling sliders (an overkill, I know. It's from StackOverflow anyways.) */
