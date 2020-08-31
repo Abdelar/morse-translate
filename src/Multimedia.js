@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import StopRoundedIcon from '@material-ui/icons/StopRounded';
-import { playTone, toBinary } from './helper';
+import { toBinary, Tone } from './helper';
 import './Multimedia.css';
 
 let tone;
 let timer;
+let volume;
+let frequency;
 export const Multimedia = props => {
 	const [playing, setPlaying] = useState(false);
 	const [light, setLight] = useState(false);
@@ -18,7 +20,8 @@ export const Multimedia = props => {
 			timer = setInterval(() => {
 				if (code[i] === 1) {
 					if (i === 0 || code[i - 1] === 0) {
-						tone = playTone();
+						tone = new Tone(volume, frequency);
+						tone.start();
 						setLight(true);
 					}
 				} else if (code[i] === 0) {
@@ -41,6 +44,20 @@ export const Multimedia = props => {
 		setPlaying(!playing);
 	};
 
+	const onVolumeChange = event => {
+		volume = event.target.value;
+		if (tone) {
+			tone.volume.value = volume;
+		}
+	};
+
+	const onFrequencyChange = event => {
+		frequency = event.target.value;
+		if (tone) {
+			tone.frequency.value = frequency;
+		}
+	};
+
 	return (
 		<div className='multimedia'>
 			<span onClick={toggleSound}>
@@ -55,6 +72,28 @@ export const Multimedia = props => {
 				className='bulb'
 				id={light ? 'on' : 'off'}
 			/>
+			<div className='volume controls'>
+				<span>Volume</span>
+				<input
+					type='range'
+					name='volume'
+					min='0'
+					max='1'
+					step='0.05'
+					defaultValue='0.3'
+					onChange={onVolumeChange}></input>
+			</div>
+			<div className='frequency controls'>
+				<span>Frequency</span>
+				<input
+					type='range'
+					name='frequency'
+					min='10'
+					max='5000'
+					step='50'
+					defaultValue='200'
+					onChange={onFrequencyChange}></input>
+			</div>
 		</div>
 	);
 };

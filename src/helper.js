@@ -29,14 +29,23 @@ export const decode = str => {
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const gain = audioContext.createGain();
 gain.connect(audioContext.destination);
-export const playTone = (volume = 0.3, frequency = 400) => {
-	gain.gain.value = volume;
-	const osc = audioContext.createOscillator();
-	osc.frequency.value = frequency;
-	osc.connect(gain);
-	osc.start();
-	return osc;
-};
+
+export class Tone {
+	constructor(volume = 0.3, frequency = 100) {
+		this.osc = audioContext.createOscillator();
+		this.volume = gain.gain;
+		this.frequency = this.osc.frequency;
+		this.volume.value = volume;
+		this.frequency.value = frequency;
+		this.osc.connect(gain);
+	}
+	start() {
+		this.osc.start();
+	}
+	stop() {
+		this.osc.stop();
+	}
+}
 
 export const toBinary = str => {
 	let res = [];
