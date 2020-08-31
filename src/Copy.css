@@ -1,0 +1,13 @@
+.copy {
+	position: relative;
+}
+.copy_icon {
+	color: var(--background-color);
+	position: absolute;
+	bottom: 15px;
+	right: 10px;
+	cursor: pointer;
+}
+.copy_icon:hover {
+	color: var(--blueGrey-color-800);
+}

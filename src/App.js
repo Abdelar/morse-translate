@@ -3,6 +3,7 @@ import SyncAlt from '@material-ui/icons/SyncAlt';
 import './App.css';
 import { encode, decode } from './helper';
 import { Multimedia } from './Multimedia';
+import { Copy } from './Copy';
 
 const App = () => {
 	const [decoded, setDecoded] = useState('');
@@ -70,6 +71,7 @@ const App = () => {
 							}
 							value={encoded}
 						/>
+						<Copy forwardedRef={morse_text_area} />
 					</div>
 				</div>
 				<Multimedia encoded={encoded} />
