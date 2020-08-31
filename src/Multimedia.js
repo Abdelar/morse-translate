@@ -12,14 +12,6 @@ export const Multimedia = props => {
 	const [light, setLight] = useState(false);
 
 	useEffect(() => {
-		// if (timer) {
-		// 	tone && tone.stop();
-		// 	clearInterval(timer);
-		// 	tone = null;
-		// 	timer = null;
-		// 	setPlaying(false);
-		// 	return;
-		// }
 		if (playing) {
 			const code = toBinary(props.encoded);
 			let i = 0;

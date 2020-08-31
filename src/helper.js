@@ -52,7 +52,7 @@ export const toBinary = str => {
 				res.push(0, 0);
 				break;
 			case '/':
-				res.push(0, 0, 0, 0, 0, 0);
+				res.push(0, 0);
 				break;
 
 			default:
