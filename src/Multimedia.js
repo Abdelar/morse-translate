@@ -9,6 +9,7 @@ let tone;
 let timer;
 let volume;
 let frequency;
+let timing = 200;
 export const Multimedia = props => {
 	const [playing, setPlaying] = useState(false);
 	const [light, setLight] = useState(false);
@@ -32,7 +33,7 @@ export const Multimedia = props => {
 					setPlaying(false);
 				}
 				i++;
-			}, 200);
+			}, timing);
 		} else {
 			tone && tone.stop();
 			clearInterval(timer);
@@ -56,6 +57,10 @@ export const Multimedia = props => {
 		if (tone) {
 			tone.frequency.value = frequency;
 		}
+	};
+
+	const onTimingChange = event => {
+		timing = event.target.value;
 	};
 
 	return (
@@ -93,6 +98,18 @@ export const Multimedia = props => {
 					step='50'
 					defaultValue='200'
 					onChange={onFrequencyChange}></input>
+			</div>
+			<div className='timing controls'>
+				<span>Timing</span>
+				<input
+					disabled={playing}
+					type='range'
+					name='timing'
+					min='50'
+					max='2000'
+					step='25'
+					defaultValue='200'
+					onChange={onTimingChange}></input>
 			</div>
 		</div>
 	);
