@@ -1,8 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SyncAlt from '@material-ui/icons/SyncAlt';
+import Tooltip from '@material-ui/core/Tooltip';
+import { withStyles } from '@material-ui/core/styles';
+
 import './App.css';
 import { encode, decode } from './helper';
 import { Multimedia } from './Multimedia';
+import { Footer } from './Footer';
 import { Copy } from './Copy';
 
 const App = () => {
@@ -34,6 +38,13 @@ const App = () => {
 		setToMorse(!toMorse);
 	};
 
+	const CustomTooltip = withStyles(theme => ({
+		tooltip: {
+			backgroundColor: 'var(--blueGrey-color-900)',
+			color: 'white',
+		},
+	}))(Tooltip);
+
 	return (
 		<div className='App'>
 			<div className='container'>
@@ -56,7 +67,9 @@ const App = () => {
 							}
 						/>
 					</div>
-					<SyncAlt className='revert' onClick={revert} fontSize='large' />
+					<CustomTooltip title='Switch editors'>
+						<SyncAlt className='revert' onClick={revert} fontSize='large' />
+					</CustomTooltip>
 					<div id={toMorse ? 'second' : 'first'} className='column'>
 						<label>Morse Code</label>
 						<textarea
@@ -75,6 +88,8 @@ const App = () => {
 					</div>
 				</div>
 				<Multimedia encoded={encoded} />
+				<Footer />
+				<span id='copyright'>elaroussi.me 2020</span>
 			</div>
 		</div>
 	);

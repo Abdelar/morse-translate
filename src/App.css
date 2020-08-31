@@ -93,3 +93,9 @@ label {
 #second {
 	order: 2;
 }
+
+#copyright {
+	color: var(--blueGrey-color-500);
+	display: inline-block;
+	margin: 40px 0 20px 0;
+}
