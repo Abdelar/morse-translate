@@ -9,7 +9,7 @@ let tone;
 let timer;
 let volume;
 let frequency;
-let period = 200;
+let period = 200; // default is 200
 export const Multimedia = props => {
 	const [playing, setPlaying] = useState(false);
 	const [light, setLight] = useState(false);
