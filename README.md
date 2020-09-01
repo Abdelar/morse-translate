@@ -1,8 +1,12 @@
-# Morse Translate 📘
+# Morse Translate 📡
 
 ## Convert plain text to Morse code and vice versa
 
-Morse Translate is a little UI created with React that help translate to and from Morse code, as well as playing the encoded message as a sequence of tones.
+Morse Translate is a little UI created with React that help translate to and from [Morse code](https://en.wikipedia.org/wiki/Morse_code), as well as playing the encoded message as a sequence of tones.
+
+![screenshot](assets/screenshot.PNG)
+
+### [Demo](https://elaroussi.me/morse-translate)
 
 ## For developers
 
