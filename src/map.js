@@ -1,3 +1,4 @@
+// https://en.wikipedia.org/wiki/Morse_code
 export const map = {
 	A: '•−',
 	B: '−•••',
