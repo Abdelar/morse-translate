@@ -96,7 +96,7 @@ export const Multimedia = props => {
 					min='10'
 					max='5000'
 					step='50'
-					defaultValue='200'
+					defaultValue='700'
 					onChange={onFrequencyChange}></input>
 			</div>
 			<div className='period controls'>

@@ -31,7 +31,7 @@ const gain = audioContext.createGain();
 gain.connect(audioContext.destination);
 
 export class Tone {
-	constructor(volume = 0.3, frequency = 100) {
+	constructor(volume = 0.3, frequency = 700) {
 		this.osc = audioContext.createOscillator();
 		this.volume = gain.gain;
 		this.frequency = this.osc.frequency;
