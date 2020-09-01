@@ -4,7 +4,7 @@
 
 Morse Translate is a little UI created with React that help translate to and from [Morse code](https://en.wikipedia.org/wiki/Morse_code), as well as playing the encoded message as a sequence of tones.
 
-![screenshot](assets/screenshot.PNG)
+![screenshot](./src/assets/screenshot.jpg)
 
 ### [Demo](https://elaroussi.me/morse-translate)
 
