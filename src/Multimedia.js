@@ -18,21 +18,33 @@ export const Multimedia = props => {
 		if (playing) {
 			const code = toBinary(props.encoded);
 			let i = 0;
-			timer = setInterval(() => {
+			const play = () => {
+				if (i === 0 || code[i - 1] === 0) {
+					tone = new Tone(volume, frequency);
+					tone.start();
+					setLight(true);
+				}
+			};
+			const pause = () => {
+				tone && tone.stop();
+				setLight(false);
+			};
+			const exit = timer => {
+				clearInterval(timer);
+				setPlaying(false);
+			};
+			const periodic = timer => {
 				if (code[i] === 1) {
-					if (i === 0 || code[i - 1] === 0) {
-						tone = new Tone(volume, frequency);
-						tone.start();
-						setLight(true);
-					}
+					play();
 				} else if (code[i] === 0) {
-					tone && tone.stop();
-					setLight(false);
+					pause();
 				} else {
-					clearInterval(timer);
-					setPlaying(false);
+					exit(timer);
 				}
 				i++;
+			};
+			timer = setInterval(() => {
+				periodic(timer);
 			}, period);
 		} else {
 			tone && tone.stop();
