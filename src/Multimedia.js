@@ -33,6 +33,10 @@ export const Multimedia = props => {
 				clearInterval(timer);
 				setPlaying(false);
 			};
+			if (props.encoded && code[i] === 1) {
+				play();
+				i++;
+			}
 			const periodic = timer => {
 				if (code[i] === 1) {
 					play();
