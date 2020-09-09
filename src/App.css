@@ -43,6 +43,9 @@ textarea {
 	border-bottom-right-radius: 15px;
 	font-size: large;
 }
+.morse_text_area {
+	padding-bottom: 28px;
+}
 textarea:focus {
 	background-color: var(--blueGrey-color-50);
 }
