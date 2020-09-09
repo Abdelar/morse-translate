@@ -1,0 +1,41 @@
+.keys {
+	position: relative;
+}
+.collection {
+	position: absolute;
+	bottom: 10px;
+	right: 6px;
+	display: flex;
+	width: 100px;
+	height: 20px;
+	justify-content: space-between;
+}
+
+.collection div {
+	position: relative;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	width: 20px;
+	cursor: pointer;
+	background-color: var(--background-color);
+	color: white;
+}
+.collection div span {
+	position: absolute;
+	font-size: 110%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/* Prevent text selection */
+	user-select: none; /* standard syntax */
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+	-moz-user-select: none; /* mozilla browsers */
+	-khtml-user-select: none; /* webkit (konqueror) browsers */
+	-ms-user-select: none; /* IE10+ */
+}
+
+.collection div:hover {
+	background-color: var(--blueGrey-color-800);
+}

@@ -7,6 +7,7 @@ import './App.css';
 import { encode, decode } from './helper';
 import { Multimedia } from './Multimedia';
 import { Footer } from './Footer';
+import { Keys } from './Keys';
 import { Copy } from './Copy';
 
 const App = () => {
@@ -24,6 +25,10 @@ const App = () => {
 		}
 	}, [toMorse]);
 
+	useEffect(() => {
+		setDecoded(decode(encoded));
+	}, [encoded]);
+
 	const handleChange = event => {
 		const { value } = event.target;
 		if (toMorse) {
@@ -36,6 +41,10 @@ const App = () => {
 	};
 	const revert = () => {
 		setToMorse(!toMorse);
+	};
+
+	const typeSymbol = symbol => {
+		setEncoded(encoded + symbol);
 	};
 
 	const CustomTooltip = withStyles(theme => ({
@@ -84,7 +93,11 @@ const App = () => {
 							}
 							value={encoded}
 						/>
-						<Copy forwardedRef={morse_text_area} />
+						{toMorse ? (
+							<Copy forwardedRef={morse_text_area} />
+						) : (
+							<Keys clicked={typeSymbol} />
+						)}
 					</div>
 				</div>
 				<Multimedia encoded={encoded} />
