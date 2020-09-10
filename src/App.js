@@ -45,6 +45,7 @@ const App = () => {
 
 	const typeSymbol = symbol => {
 		setEncoded(encoded + symbol);
+		morse_text_area.current.focus();
 	};
 
 	const CustomTooltip = withStyles(theme => ({

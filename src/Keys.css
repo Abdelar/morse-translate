@@ -39,3 +39,7 @@
 .collection div:hover {
 	background-color: var(--blueGrey-color-800);
 }
+.collection div:active {
+	transform: scale(1.2);
+	box-shadow: 0px 0px 2px var(--blueGrey-color-900);
+}
