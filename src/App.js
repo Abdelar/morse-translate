@@ -86,7 +86,7 @@ const App = () => {
 							ref={morse_text_area}
 							name='morse_text_area'
 							readOnly={toMorse}
-							className={!toMorse && 'morse_text_area'}
+							className={toMorse ? '' : 'morse_text_area'}
 							onChange={handleChange}
 							placeholder={
 								toMorse
