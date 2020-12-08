@@ -104,7 +104,7 @@ const App = () => {
 				</div>
 				<Multimedia encoded={encoded} />
 				<Footer />
-				<span id='copyright'>elaroussi.me 2020</span>
+				<span id='copyright'>abdell.tech 2020</span>
 			</div>
 		</div>
 	);
