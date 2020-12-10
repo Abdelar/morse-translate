@@ -6,7 +6,7 @@ Morse Translate is a little UI created with React that help translate to and fro
 
 ![screenshot](./src/assets/screenshot.jpg)
 
-### [Demo](https://elaroussi.me/morse-translate)
+### [Demo](https://abdell.tech/morse-translate)
 
 ## For developers
 
