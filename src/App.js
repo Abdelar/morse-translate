@@ -25,10 +25,6 @@ const App = () => {
 		}
 	}, [toMorse]);
 
-	useEffect(() => {
-		setDecoded(decode(encoded));
-	}, [encoded]);
-
 	const handleChange = event => {
 		const { value } = event.target;
 		if (toMorse) {
